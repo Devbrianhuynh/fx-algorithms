@@ -1,1 +1,1 @@
-'Package of foreign exchange algorithms with ML and frontend' 
+Package of high-frequency trading algorithms
