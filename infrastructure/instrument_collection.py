@@ -35,8 +35,7 @@ class InstrumentCollection:
             
         file_name = f'{path}/{self.FILENAME}'
         with open(file_name, 'w') as file:
-            file.write(json.dumps(instruments_dict, indent=2))
-            
+            file.write(json.dumps(instruments_dict, indent=2))       
 
 
 instrument_collection = InstrumentCollection()        
