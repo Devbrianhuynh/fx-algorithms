@@ -39,6 +39,3 @@ class InstrumentCollection:
 
 
 instrument_collection = InstrumentCollection()        
-            
-        
-    
