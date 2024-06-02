@@ -1,6 +1,7 @@
 import pandas as pd
 import os.path
 from infrastructure.instrument_collection import instrument_collection as ic
+from simulation.ma_excel import create_ma_res
 
 
 class MovingAverageResult:
@@ -142,7 +143,7 @@ def analyze_pair(instrument, granularity, ma_long, ma_short, filepath):
     process_results(ma_results, filepath)
             
 
-def run_ma_sim(currencies=['USD', 'GBP', 'CHF'], granularity=['H1', 'H4'], ma_long=[20, 21, 50, 200], ma_short=[10, 20, 50], filepath='./data'):
+def run_ma_sim(currencies=['USD', 'GBP', 'CHF', 'JPY'], granularity=['M5', 'H1'], ma_long=[20, 50], ma_short=[10, 20], filepath='./data'):
     ic.load_instruments('./data')
     
     for gran in granularity:
@@ -151,5 +152,7 @@ def run_ma_sim(currencies=['USD', 'GBP', 'CHF'], granularity=['H1', 'H4'], ma_lo
                 pair = f'{curr_1}_{curr_2}'
                 
                 if pair in ic.instruments_dict.keys():
-                    analyze_pair(ic.instruments_dict[pair], gran, ma_long, ma_short, filepath)                    
+                    analyze_pair(ic.instruments_dict[pair], gran, ma_long, ma_short, filepath)        
+        
+        create_ma_res(gran)            
                     
