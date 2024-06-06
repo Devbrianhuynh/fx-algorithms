@@ -1,5 +1,8 @@
+import sys
+sys.path.append('../')
+
 import pandas as pd
-from candle_pattern_criteria import *
+from technicals.candle_pattern_criteria import *
 
 
 # Single candlestick patterns
