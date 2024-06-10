@@ -37,7 +37,7 @@ def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_m
     
     # Plug and play: bot.py can execute any strategy as long as following cols in log_cols are returned
     # Build whatever strategy as wished; the rest of the code will work as long as log_cols's cols are returned
-    log_cols = ['pair', 'time', 'mid_c', 'mid_o', 'SL', 'TP' 'spread', 'gain', 'loss', 'signal']
+    log_cols = ['pair', 'time', 'mid_c', 'mid_o', 'SL', 'TP', 'spread', 'gain', 'loss', 'signal']
     
     log_message(f'technicals_manager.py --> process_candles(): \n {df[log_cols].tail()}', pair)
     
@@ -78,7 +78,11 @@ def get_trade_decision(candle_time, pair, granularity, api: OandaAPI, trade_sett
     
     if df is not None:
       last_row = process_candles(df, pair, trade_settings, log_message)  
+      print(last_row)
       return TradeDecision(last_row)
+    
+    else:
+        print('none')
     
     return None
     

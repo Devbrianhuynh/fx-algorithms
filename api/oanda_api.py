@@ -5,6 +5,7 @@ import json
 from dateutil import parser
 from datetime import datetime as dt
 
+from constants.defs import SECURE_HEADER
 from infrastructure.instrument_collection import instrument_collection as ic
 from models.open_trade import OpenTrade
 from models.api_price import APIPrice
@@ -14,10 +15,7 @@ from models.api_price import APIPrice
 class OandaAPI:
     def __init__(self):
         self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'Bearer {defs.API_KEY}',
-            'Content-Type': 'application/json'
-        })
+        self.session.headers.update(SECURE_HEADER)
         
     
     def make_request(self, url, verb='get', code=200, params=None, data=None, headers=None):
