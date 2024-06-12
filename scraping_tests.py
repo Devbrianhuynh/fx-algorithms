@@ -20,5 +20,5 @@ def execute_web_scraping(site_num):
 
 
 if __name__ == '__main__':
-    execute_web_scraping(2)
+    execute_web_scraping(4)
     

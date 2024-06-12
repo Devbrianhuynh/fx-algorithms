@@ -1,9 +1,12 @@
-import pandas as pd
 import requests
 import time
+import random
 import datetime as dt
+import pandas as pd
 from bs4 import BeautifulSoup
 from dateutil import parser
+
+from mongodb.mongodb import MongoDB
 
 
 pd.set_option('display.max_rows', None)
@@ -100,29 +103,18 @@ def get_fx_calendar(from_date):
 def fx_calendar():
     final_data = []
     
-    start = parser.parse('2022-03-07T00:00:00Z')
-    end = parser.parse('2022-03-25T00:00:00Z')        
+    start = parser.parse('2023-07-03T00:00:00Z')
+    end = parser.parse('2024-06-12T00:00:00Z')        
+    
+    database = MongoDB()
 
     while start < end:
-        print(start)
+        data = get_fx_calendar(start)
         
-        final_data += get_fx_calendar(start)
+        print(start, len(data))
+        
+        database.add_many(MongoDB.CALENDAR_COLL, data)
+        
         start = start + dt.timedelta(days=7)
-        
-        time.sleep(2)
-        
-    return pd.DataFrame.from_dict(final_data)
-        
-    
-                
-                
-                
-                
-    
-    
-    
-    
-    
-    
-    
+        time.sleep(random.randint(1, 5))
     
