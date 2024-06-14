@@ -1,0 +1,7 @@
+pandas
+flask
+plotly
+sklearn
+beautifulsoup4
+dateutil
+numpy

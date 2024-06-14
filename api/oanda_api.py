@@ -128,6 +128,20 @@ class OandaAPI:
         return df.iloc[-1]['time']
     
     
+    def web_api_candles(self, pair, granularity, count):
+        df = self.get_candles_df(pair, granularity=granularity, count=count)
+        
+        if df.shape[0] == 0:
+            return None
+        
+        cols = ['time', 'mid_o', 'mid_h', 'mid_l', 'mid_c']
+        
+        df = df[cols].copy()
+        df['time'] = df['time'].dt.strftime('%y-%m-%d %H:%M')
+        
+        return df.to_dict(orient='list')
+    
+    
     def place_trade(self, pair, units: float, direction: int, stop_loss: float=None, take_profit: float=None):
         url = f'accounts/{defs.ACCOUNT_ID}/orders'
         

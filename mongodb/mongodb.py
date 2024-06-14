@@ -69,6 +69,4 @@ class MongoDB:
             
         except errors.InvalidOperation as error:
             print(f'query_all() error: {error}')
-        
-        
-            
+                

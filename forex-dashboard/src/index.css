@@ -1,0 +1,161 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Anek Odia", sans-serif;
+}
+
+#app-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    padding: 0.4rem 0.5rem;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: rgb(231, 231, 231);
+    font-size: 0.9rem;
+}
+
+.select {
+    margin-left: 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+.container {
+    flex-grow: 1;
+    padding: 0rem 1rem;
+}
+
+#navbar {
+    color: white;
+    background-color: black;
+    font-family: Helvetica;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 0;
+}
+
+.navtitle {
+    font-size: large;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+
+
+#navlinks {
+    display: flex;
+}
+
+.navlink {
+    padding: 1rem;
+}
+
+.navlink a {
+    color: lightgrey;
+}
+
+.navlink a:visited {
+    color: lightgrey;
+}
+
+.navlink a:hover {
+    color: white;
+}
+
+.title-head {
+    padding-top: 1rem;
+}
+
+.segment {
+    padding: 1em;
+    border: 3px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.3rem;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+}
+
+.options {
+    display: flex;
+    align-items: center;
+}
+
+.options div {
+    margin-left: 1.5rem;
+}
+
+button {
+    cursor: pointer;
+    min-height: 1em;
+    border: none;
+    background-color: #0078D7;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1.2rem;
+}
+
+button:hover {
+    background-color: black;
+}
+
+button:active {
+    background-color: #00B294;
+}
+
+.account-row {
+    display: flex;
+}
+
+.account-row .header {
+    flex-basis: 40%;
+}
+
+.account-row .bold {
+    font-weight: bold;
+}
+
+.headline {
+    font-weight: 500;
+    padding: 0.8em 0em;
+}
+
+.headline a {
+    text-decoration: none;
+    color: black;
+}
+
+.headline a:hover {
+    font-size: large;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+.progess {
+    height: 1.5rem;
+    border-radius: 0.3rem;
+}
+
+.progress-holder {
+    background-color: rgb(222, 222, 222);
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: bold;
+}
+
+.progress-wrap {
+    margin: 1rem 0rem;
+}

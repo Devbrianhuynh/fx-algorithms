@@ -6,8 +6,8 @@ import pandas as pd
 
 
 def get_pairs(soup: BeautifulSoup):
-    rows = soup.select('#pairSublinksLevel2')
-    li = rows[0].select('li')
+    rows = soup.select_one('#pairSublinksLevel2')
+    li = rows.select('li')
 
     pairs = []
 
@@ -80,7 +80,7 @@ def get_data(session: cloudscraper, headers, pairs):
     return investing_com_dict
 
 
-def investing_com():
+def investing_com(type):
     session = cloudscraper.create_scraper()
     
     headers = {
@@ -96,6 +96,20 @@ def investing_com():
 
     pairs = get_pairs(soup)
     investing_com_dict = get_data(session, headers, pairs)
+    
+    if type == 'dataframe':
+        return pd.DataFrame.from_dict(investing_com_dict)
+    elif type == 'dict':
+        return investing_com_dict
 
-    return pd.DataFrame.from_dict(investing_com_dict)
 
+def get_pair(pair, type='dataframe'):
+    investing_com_data = investing_com(type)
+    
+    if type == 'dataframe':
+        return investing_com_data[investing_com_data['pair'] == pair]
+    
+    elif type == 'dict':
+        for data in investing_com_data:
+            if data['pair'] == pair:
+                return data
