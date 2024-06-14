@@ -35,6 +35,9 @@ def get_data(session: cloudscraper, headers, pairs):
         # Last price
         last_value = soup.select_one('.lastValue')
         last_value = float(last_value.get_text())
+        
+        # Summary
+        summary = soup.select_one('span.uppercaseText').get_text()
 
         # Consensus metrics
         sum_table_line = soup.select('.summaryTableLine')
@@ -64,6 +67,7 @@ def get_data(session: cloudscraper, headers, pairs):
         investing_com_dict.append({
             'pair': '_'.join(p.split('-')[:2]).upper(),
             'last_price': last_value,
+            'summary': summary,
             'ti_buy': ti_buy,
             'ti_sell': ti_sell,
             'ma_buy': ma_buy,

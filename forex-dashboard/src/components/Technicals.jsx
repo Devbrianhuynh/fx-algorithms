@@ -14,8 +14,7 @@ function Technicals({ data }) {
     <div className='segment'>
 
         {/* Not available */}
-        <Progress title='Bullish' color='#21BA45' percentage={data.percent_bullish} />
-        <Progress title='Bearish' color='#DB2828' percentage={data.percent_bearish} />
+        <Progress title='Direction:' summary={data.summary} />
 
         <table>
             <thead>

@@ -15,7 +15,7 @@ function Dashboard() {
   const [selectedTechnical, setSelectedTechnical] = useState(null);
 
   const loadTechnicals = async () => {
-    const data = await endPoints.technicals(selectedPair, selectedGranularity);
+    const data = await endPoints.technicals(selectedPair);
     console.log({...data});
     setSelectedTechnical(data)
   }
